@@ -21,4 +21,4 @@ cd ${input_path}
 ${plink_path}/plink2 --bfile filter --keep keeppd --covar cova.txt --pheno pheno.txt --linear interaction --covar-name SMOKE,SEX,T,AAE,PCA1,PCA2,PCA3,PCA4 --pheno-name AAO --parameters 1,2,10 --out GWEIS_out_filter
 
 cat GWEIS_out_filter.AAO.glm.linear |grep -w ADDxSMOKE > SMOKE_AAO_interaction.txt
-
+awk -v OFS="\t" '{prit$3,$1,$2,$NF}' SMOKE_AAO_interaction.txt > manh
